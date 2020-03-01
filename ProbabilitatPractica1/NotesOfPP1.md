@@ -21,7 +21,28 @@
 |`c(0,2,4,6,8,10,12,14)[3:4]`|Retorna el fragment (o components) del vector desitjat.|`c(0,2,4,6,8,10,12,14)[3:4] # Imprimira [1] 4 6`|`[1] 4 6`|
 |`rep()` |_Repeat_, serveix per repetir el primer argument _n_ vegades el segon argument |`rep(":)",2) #El doble de content`|`[1] ":)" ":)"`|
 |`1:10`|Successions (llista) d'enters|`1:10 #Comptar nombre de suspesos`|` [1]  1  2  3  4  5  6  7  8  9 10`|
+|`5:1`|Dóna els valors dels enters de gran a petit.|`5:1`|`[1] 5 4 3 2 1`|
 |`seq(,,by=)`|Serveix per fer llistes de nombres més elaborades. Podem pensar que ens dóna fins l enèsim nombre d'una successió. De `-pi` fins a `pi` de `0.5` en `0.5`.|`seq(-pi,pi,by=.5)`| `[1] -3.1415927 -2.6415927 -2.1415927 -1.6415927 -1.1415927 -0.6415927 [7] -0.1415927  0.3584073  0.8584073  1.3584073  1.8584073  2.3584073 [13]  2.8584073`|
 |`seq(,,lenght=)`|També podem ficar  l' _especificador_ `lenght=` per demanar 10 valors equiespaiats entre dos nombres de la recta real.|`seq(-pi,pi,length=10),`|`seq(-pi,pi,length=10)`| `[1] -3.1415927 -2.4434610 -1.7453293 -1.0471976 -0.3490659  0.3490659 [7]  1.0471976  1.7453293  2.4434610  3.1415927`|
 |`seq(,by=, lenght=)`|Podem combinar les dues opcions per a fer una llista de `lenght` valors de `by` en `by` a partir d'un valor donat, en aquest cas `1`.|`seq(1,by=.05,length=10)`|`[1] 1.00 1.05 1.10 1.15 1.20 1.25 1.30 1.35 1.40 1.45`|
 |`espera=c("H","O","P","E")`|També podem definir un _array_/llista/vector de _Strings_.|` c("N",espera[2])`|`[1] "N" "O"`|
+|`+`,`-`,`*`,`/`,`^`|Operadors bàsics, en igual odre, suma, resta, producte, quocient, potència.(**Nota:** El vectors o llistes és sumen component a component).|`(1+2-3*4/5^6)`|`[1] 2.999232`|
+|`c(1,2,3,4,5)-1`|Vector menys un nombre, és interpretar com restar/sumar la quantitat a cada una de les components.|`c(1,2,3,4,5)-1`|`[1] 0 1 2 3 4`|
+|`c(1,2,3,4,5)*2`|Producte usual de _vector_ per _escalar_.|`c(1,2,3,4,5)*2`|`[1]  2  4  6  8 10`|
+
+**Potser rellevant dividir la taula en taules més petites per temàtica.**
+## Exemples
+### Exemple alçades
+Tenim dades de les alçades (en metres) i masses (en grams) de un grup de 6 persones. I en volem calcular L'**índex de massa corporal** o *IMC*, que recordem que es defineix com _el pes_ (no com a força, amb Kg) dividit entre l'alçada (en metres) al quadrat. _Picant codi_:
+```R
+# Obvservem que les operacions amb vectors es fan component a component
+pes=c(60,72,57,90,95,72)
+alcada=c(1.75,1.80,1.65,1.90,1.74,1.91)
+IMC=pes/(alcada^2)
+IMC
+```
+``` Terminal
+[1] 19.59184 22.22222 20.93664 24.93075 31.37799 19.73630
+
+
+```
