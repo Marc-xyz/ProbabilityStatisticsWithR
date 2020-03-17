@@ -59,6 +59,14 @@
 | `lfactorial(n)`| Serveix per obtenir directament el logaritme del valor factorial. | `> lfactorial(4); lfactorial(5); lfactorial(6);` |`[1] 3.178054 [1] 4.787492 [1] 6.579251`|
 |   `g=function(x_1,x_2,x_3){operacions amb variables}`   | Serveix per definir noves funcions a partir de les anteriors. | `f= function(x){x^2-1};f(2); a=c(1,2,3); f(a); # Aplica funció component a component`|`[1] 3 [1] 0 3 8`|
 
+### Gràfics
+|Comentari sobre la comanda|Comanda|Gràfic|
+|--------------------------|--------------------------|----|
+| Representa els punts al pla que defineixen dos vector amb la mateixa longitud un per els valor de les abscisses `OX` i l'altre per les ordenades `OY`. |`x=c(3,1,5,3); y=c(1,3,3,5); plot(x,y);`|`#Veure PlotTypeL.png`|
+| Representa una línia que uneix els punts al pla (per orde de component) que defineixen dos vector amb la mateixa longitud un per els valor de les abscisses `OX` i l'altre per les ordenades `OY`.|`x=c(3,1,5,3); y=c(1,3,3,5); plot(x,y, type="l");`|`#Veure PlotTypeL.png`|
+| Per dibuixar fragments de funcions o corbes planes parametritzades. |`curve(exp(-x^2),from=-3,to=3,col=2)` | `#Veure CurveBellGaus.png`|
+| Per introduir llegenda als gràfics de fragments de funcions o corbes planes parametritzades. |`curve(exp(-x^2),from=-3,to=3,col=2);` `legend(’topright’,’exp(-x^2)’,lty=1,col=2);`   | `#Veure CurveLegendBellGauss.png`|
+
 **Potser rellevant dividir la taula en taules més petites per temàtica.**
 ## Exemples
 ### Exemple alçades
