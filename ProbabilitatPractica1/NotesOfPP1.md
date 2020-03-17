@@ -1,5 +1,6 @@
 # Referències ràpides per a l'R
-## Elementals
+## taules de sintaxis del llenguatge R 
+### Elementals
 |Comanda|Comentari sobre la comanda|Exemple(_Input_)|(_ouput_)|
 |-------|--------------------------|--------------------------|-----------------|
 |   `#`   | Serveix per ficar comentaris. | `#This is a code comment` ||
@@ -14,7 +15,7 @@
 |`F`|Variable Booleana. Fals.|`F #FALSE`|`[1] FALSE`|
 |`NA`|Not available, hi ha alguna dada que falta o que no té sentit en algun lloc.|`NA #NADENA`|`[1] NA`|
 |`+`,`-`,`*`,`/`,`^`|Operadors bàsics, en igual odre, suma, resta, producte, quocient, potència. (**Nota:** El vectors o llistes és sumen component a component).|`(1+2-3*4/5^6)`|`[1] 2.999232`|
-## Successions
+### Successions
 |Comanda|Comentari sobre la comanda|Exemple(_Input_)|(_ouput_)|
 |-------|--------------------------|--------------------------|-----------------|
 |`rep()` |_Repeat_, serveix per repetir el primer argument _n_ vegades el segon argument |`rep(":)",2) #El doble de content`|`[1] ":)" ":)"`|
@@ -24,7 +25,15 @@
 |`seq(,,lenght=)`|També podem ficar  l' _especificador_ `lenght=` per demanar 10 valors equiespaiats entre dos nombres de la recta real.|`seq(-pi,pi,length=10),`|`seq(-pi,pi,length=10)`| `[1] -3.1415927 -2.4434610 -1.7453293 -1.0471976 -0.3490659  0.3490659 [7]  1.0471976  1.7453293  2.4434610  3.1415927`|
 |`seq(,by=, lenght=)`|Podem combinar les dues opcions per a fer una llista de `lenght` valors de `by` en `by` a partir d'un valor donat, en aquest cas `1`.|`seq(1,by=.05,length=10)`|`[1] 1.00 1.05 1.10 1.15 1.20 1.25 1.30 1.35 1.40 1.45`|
 |`espera=c("H","O","P","E")`|També podem definir un _array_/llista/vector de _Strings_.|` c("N",espera[2])`|`[1] "N" "O"`|
-## _Arrays_
+### _Arrays_
+
+> Recordem la **Regla de reutilització**: si tenim dos vector de diferents mides `a` i `b`. Suposem que el vector més curt és `b`. Aleshores en fer l'operació `a*b`,`a+b`,`a-b`, etc, tenim que les operacions és fan _component a component_ i quan s'acaben les _components_ de `b` aleshores és reciclen en el mateix ordre fins acabar amb totes les components de `a`.
+Exemple:
+```R
+> a=c(1,2,3,4);b=c(-1,1);
+> a*b
+[1] -1  2 -3  4
+```
 |Comanda|Comentari sobre la comanda|Exemple(_Input_)|(_ouput_)|
 |-------|--------------------------|--------------------------|-----------------|
 |`a <- c(1,0,-1,1)`|Assignar valor vectorial `c(1,0,-1,1)` a la variable `a`. La `c` ve de concatenar. |`a<- c(1,0,-1,1) #Forma de fer ho vella (previus versions R)`||
@@ -35,6 +44,7 @@
 |`c(0,2,4,6,8,10,12,14)[3:4]`|Retorna el fragment (o components) del vector desitjat.|`c(0,2,4,6,8,10,12,14)[3:4] # Imprimira [1] 4 6`|`[1] 4 6`|
 |`c(1,2,3,4,5)-1`|Vector menys un nombre, és interpretar com restar/sumar la quantitat a cada una de les components.|`c(1,2,3,4,5)-1`|`[1] 0 1 2 3 4`|
 |`c(1,2,3,4,5)*2`|Producte usual de _vector_ per _escalar_.|`c(1,2,3,4,5)*2`|`[1]  2  4  6  8 10`|
+
 **Potser rellevant dividir la taula en taules més petites per temàtica.**
 ## Exemples
 ### Exemple alçades
