@@ -57,6 +57,7 @@
 | `choose (n,k)` | _n sobre k_, nombre combinatori, combinacions de agafar `k` elements sense ordre d'un conjunt de `n` elements. |`choose(6,4);` | `[1] 15`|
 | `factorial(n)`| Dóna _n factorial_, `$n!$`. |`factorial(4); factorial(5); factorial(6);` |`[1] 24` `[1] 120` `[1] 720`|
 | `lfactorial(n)`| Serveix per obtenir directament el logaritme del valor factorial. | `> lfactorial(4); lfactorial(5); lfactorial(6);` |`[1] 3.178054 [1] 4.787492 [1] 6.579251`|
+|   `g=function(x_1,x_2,x_3){operacions amb variables}`   | Serveix per definir noves funcions a partir de les anteriors. | `f= function(x){x^2-1};f(2); a=c(1,2,3); f(a); # Aplica funció component a component`|`[1] 3 [1] 0 3 8`|
 
 **Potser rellevant dividir la taula en taules més petites per temàtica.**
 ## Exemples
@@ -83,3 +84,19 @@ Amb els vectors `a=c(2,1,4,7)` i `b=c(4,0,-1,7)`, calculeu `c=2*a+5*b` i `d=a*b`
 [1] 24  2  3 49
 [1]  8  0 -4 49
 ```
+### Exercici 2
+Escriviu una funció de `m` i `n` que calculi les variacions `Var(m, n)`. Calculeu `Var(365, 10)`. Recordem que:
+```TEX
+$$
+Var(m,n)=frac{m!}{(m-n)!}
+$$
+```
+**Solució:**
+Si fem servir directament l'expressió obtenim l'error `Warning message:
+In factorial(345) : value out of range in 'gammafn'`. Però també podem escriure `$Var(m,n)={m}\choose{n} \cdot n!$`.
+```R
+> Var=function(m,n){choose(m,n)*factorial(n)}; Var(365,10);
+[1] 3.70608e+25
+```
+```
+
