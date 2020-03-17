@@ -47,6 +47,17 @@
 |`c(1,2,3,4,5)-1`|Vector menys un nombre, és interpretar com restar/sumar la quantitat a cada una de les components.|`c(1,2,3,4,5)-1`|`[1] 0 1 2 3 4`|
 |`c(1,2,3,4,5)*2`|Producte usual de _vector_ per _escalar_.|`c(1,2,3,4,5)*2`|`[1]  2  4  6  8 10`|
 
+### Funcions Matemàtiques
+|Comanda|Comentari sobre la comanda|Exemple(_Input_)|(_ouput_)|
+|-------|--------------------------|--------------------------|-----------------|
+|   `max(a)` i `min(a)`   | Dóna el valor màxim i mínim de totes les components del vector `a` respectivament. Això també és pot veure com la _norma infinit_| `min(c(8,3,7)); max(c(8,3,7));` |`[1] 3 [1] 8`|
+| `sum(a)` | Suma totes les components del vector `a`. |`sum(c(8,3,7));` | `[1] 18`|
+| `prod(a)`| Dóna el producte de totes les components del vector `a`. |`prod(c(8,3,7));` | `[1] 168`|
+| `prod(a)`| Dóna el producte de totes les components del vector `a`. |`prod(c(8,3,7));` | `[1] 168`|
+| `choose (n,k)` | _n sobre k_, nombre combinatori, combinacions de agafar `k` elements sense ordre d'un conjunt de `n` elements. |`choose(6,4);` | `[1] 15`|
+| `factorial(n)`| Dóna _n factorial_, `$n!$`. |`factorial(4); factorial(5); factorial(6);` |`[1] 24` `[1] 120` `[1] 720`|
+| `lfactorial(n)`| Serveix per obtenir directament el logaritme del valor factorial. | `> lfactorial(4); lfactorial(5); lfactorial(6);` |`[1] 3.178054 [1] 4.787492 [1] 6.579251`|
+
 **Potser rellevant dividir la taula en taules més petites per temàtica.**
 ## Exemples
 ### Exemple alçades
