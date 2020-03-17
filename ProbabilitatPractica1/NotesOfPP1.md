@@ -1,5 +1,5 @@
 # Referències ràpides per a l'R
-## taules de sintaxis del llenguatge R 
+## Taules de sintaxis del llenguatge R 
 ### Elementals
 |Comanda|Comentari sobre la comanda|Exemple(_Input_)|(_ouput_)|
 |-------|--------------------------|--------------------------|-----------------|
@@ -28,12 +28,14 @@
 ### _Arrays_
 
 > Recordem la **Regla de reutilització**: si tenim dos vector de diferents mides `a` i `b`. Suposem que el vector més curt és `b`. Aleshores en fer l'operació `a*b`,`a+b`,`a-b`, etc, tenim que les operacions és fan _component a component_ i quan s'acaben les _components_ de `b` aleshores és reciclen en el mateix ordre fins acabar amb totes les components de `a`.
-Exemple:
+
+> Exemple:
 ```R
 > a=c(1,2,3,4);b=c(-1,1);
 > a*b
 [1] -1  2 -3  4
 ```
+
 |Comanda|Comentari sobre la comanda|Exemple(_Input_)|(_ouput_)|
 |-------|--------------------------|--------------------------|-----------------|
 |`a <- c(1,0,-1,1)`|Assignar valor vectorial `c(1,0,-1,1)` a la variable `a`. La `c` ve de concatenar. |`a<- c(1,0,-1,1) #Forma de fer ho vella (previus versions R)`||
