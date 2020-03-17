@@ -60,6 +60,15 @@ IMC
 ```
 ``` Terminal
 [1] 19.59184 22.22222 20.93664 24.93075 31.37799 19.73630
+```
 
+## Exercicis
+### Exercici 1
+Amb els vectors `a=c(2,1,4,7)` i `b=c(4,0,-1,7)`, calculeu `c=2*a+5*b` i `d=a*b`,on aquesta darrera expressió vol dir el _producte component a component_ (producte escalar de vectors).
 
+**Solució:**
+```R
+> a=c(2,1,4,7); b=c(4,0,-1,7); c=2*a+5*b; d=a*b; c; d;
+[1] 24  2  3 49
+[1]  8  0 -4 49
 ```
