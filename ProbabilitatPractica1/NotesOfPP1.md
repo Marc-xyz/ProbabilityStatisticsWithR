@@ -64,8 +64,21 @@
 |--------------------------|--------------------------|----|
 | Representa els punts al pla que defineixen dos vector amb la mateixa longitud un per els valor de les abscisses `OX` i l'altre per les ordenades `OY`. |`x=c(3,1,5,3); y=c(1,3,3,5); plot(x,y);`|`#Veure PlotTypeL.png`|
 | Representa una línia que uneix els punts al pla (per orde de component) que defineixen dos vector amb la mateixa longitud un per els valor de les abscisses `OX` i l'altre per les ordenades `OY`.|`x=c(3,1,5,3); y=c(1,3,3,5); plot(x,y, type="l");`|`#Veure PlotTypeL.png`|
-| Per dibuixar fragments de funcions o corbes planes parametritzades. |`curve(exp(-x^2),from=-3,to=3,col=2)` | `#Veure CurveBellGaus.png`|
+| Per dibuixar fragments de funcions o corbes planes parametritzades. Observem que `col=2` fa referencia a que el color per efectuar el gràfic és el _color 2_ que tal com podem veure fa referencia al color vermell. |`curve(exp(-x^2),from=-3,to=3,col=2)` | `#Veure CurveBellGaus.png`|
 | Per introduir llegenda als gràfics de fragments de funcions o corbes planes parametritzades. |`curve(exp(-x^2),from=-3,to=3,col=2);` `legend(’topright’,’exp(-x^2)’,lty=1,col=2);`   | `#Veure CurveLegendBellGauss.png`|
+|Per afegir la recta horitzontal i vertical que passa pel zero respectivament.|`curve(exp(-x^2),from=-3,to=3,col=2);abline(h=0); abline(v=0);`|`# Veure CurveLines*`| 
+|Podem prescindir de `for=`i `to=` i simplement ficar els dos valors per el paràmetre després de la funció `sin(x)`. `main=dibuix` permet ficar un títol al gràfic |`curve(sin(x),-pi,pi, main="dibuix")`|`#Veure CosSin01.png`|
+|El _argument_ `add=T` (T de True i F de False) permet ficar diversos gràfics junts. `lty=2` fa referencia a _line type_ és ha dir línia tipus 2, que tal com podem veure és una línia discontinua. `col=2` ens indica que el gràfic és dibuixarà amb color vermell|`...; curve(cos(x),add=T,lty=2,col=2);`|`# Veure CosSin02.png`|
+
+
+#### `x=c(3,1,5,3); y=c(1,3,3,5); plot(x,y);`
+![`plot(x,y)`](ImagesOfPP1/PlotTypeDefault.png)
+#### `x=c(3,1,5,3); y=c(1,3,3,5); plot(x,y, type="l");`
+![`plot(x,y, type="l")`](ImagesOfPP1/PlotTypeL.png)
+#### `curve(exp(-x^2),from=-3,to=3,col=2)`
+![`plot(x,y)`](ImagesOfPP1/CurveBellGauss.png)
+#### `curve(exp(-x^2),from=-3,to=3,col=2);` `legend(’topright’,’exp(-x^2)’,lty=1,col=2);`
+![`plot(x,y)`](ImagesOfPP1/CurveLegendBellGauss.png)
 
 **Potser rellevant dividir la taula en taules més petites per temàtica.**
 ## Exemples
