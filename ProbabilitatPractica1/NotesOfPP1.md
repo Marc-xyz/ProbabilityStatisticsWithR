@@ -68,17 +68,34 @@
 | Per introduir llegenda als gràfics de fragments de funcions o corbes planes parametritzades. |`curve(exp(-x^2),from=-3,to=3,col=2);` `legend(’topright’,’exp(-x^2)’,lty=1,col=2);`   | `#Veure CurveLegendBellGauss.png`|
 |Per afegir la recta horitzontal i vertical que passa pel zero respectivament.|`curve(exp(-x^2),from=-3,to=3,col=2);abline(h=0); abline(v=0);`|`# Veure CurveLines*`| 
 |Podem prescindir de `for=`i `to=` i simplement ficar els dos valors per el paràmetre després de la funció `sin(x)`. `main=dibuix` permet ficar un títol al gràfic |`curve(sin(x),-pi,pi, main="dibuix")`|`#Veure CosSin01.png`|
-|El _argument_ `add=T` (T de True i F de False) permet ficar diversos gràfics junts. `lty=2` fa referencia a _line type_ és ha dir línia tipus 2, que tal com podem veure és una línia discontinua. `col=2` ens indica que el gràfic és dibuixarà amb color vermell|`...; curve(cos(x),add=T,lty=2,col=2);`|`# Veure CosSin02.png`|
+|El _argument_ `add=T` (T de True i F de False) permet ficar diversos gràfics junts. `lty=2` fa referencia a _line type_ és ha dir línia tipus 2, que tal com podem veure és una línia discontinua. `col=2` ens indica que el gràfic és dibuixarà amb color vermell.|`...; curve(cos(x),add=T,lty=2,col=2);`|`# Veure CosSin02.png`|
+|Com abans a `legend(...)`, `'topright'` indica la posició. El vector de _Strings_indicarà el nom de les dos gràfiques sobreposades. `lty=c(1,2)` indica que el primer element de la llegenda és amb línia contínua `lty=1` i el segon amb línia discontinua `lty=2`. El color és `col=1` per negre i `col=2` per al vermell, primera i segona gràfica respectivament.|`...;legend('topright',c('sin(x)','cos(x)'),lty=c(1,2),col=c(1,2));`| `#Veure CosSin03.png`|
+| Amb `abline(h=0,v=0);` afegim les rectes horitzontals `h` i verticals `v` que passen per zero `=0` al gràfic. També podem pensar que això és el mateix que ficar els eixos `OX`i `OY`.|`...; abline(h=0,v=0);`|`#Veure CosSin04.png`|
+|Amb `point(...)` podem dibuixar punt. `-1:1` fa referencia a la regió del eix d'abscisses  que agafem per dibuixar punt, amb punts equidistants. El vector `c(0,1,0.5)` indica el nombre de punts i els valors de les ordenades.   `col=c(3,4,5)` indica els color ; `col=3` verd,`col=4`blau, `col=5` cian.`pch=` fa referencia a la forma dels punts. Potser passa el mateix que amb els colors `col=23` és el mateix que `col=7`, cicle `23-8*2=7`.|`...; points(-1:1,c(0,1,0.5),pch=c(18,20,22), col=c(3,4,5));`|`#Veure CosSin05.png`|
 
 
 #### `x=c(3,1,5,3); y=c(1,3,3,5); plot(x,y);`
-![`plot(x,y)`](ImagesOfPP1/PlotTypeDefault.png)
+![ImagesOfPP1/PlotTypeDefault.png](ImagesOfPP1/PlotTypeDefault.png)
 #### `x=c(3,1,5,3); y=c(1,3,3,5); plot(x,y, type="l");`
 ![`plot(x,y, type="l")`](ImagesOfPP1/PlotTypeL.png)
 #### `curve(exp(-x^2),from=-3,to=3,col=2)`
 ![`plot(x,y)`](ImagesOfPP1/CurveBellGauss.png)
 #### `curve(exp(-x^2),from=-3,to=3,col=2);` `legend(’topright’,’exp(-x^2)’,lty=1,col=2);`
 ![`plot(x,y)`](ImagesOfPP1/CurveLegendBellGauss.png)
+#### `curve(sin(x),-pi,pi, main="dibuix"); curve(cos(x),add=T,lty=2,col=2) ;legend('topright',c('sin(x)','cos(x)'),lty=c(1,2),col=c(1,2)); abline(h=0,v=0); points(-1:1,c(0,1,0.5),pch=c(18,20,22), col=c(3,4,5));`
+
+> curve(sin(x),-pi,pi, main="dibuix");
+![](ImagesOfPP1/CosSin0.png)
+> curve(cos(x),add=T,lty=2,col=2);
+![](ImagesOfPP1/CosSin0.png)
+> legend('topright',c('sin(x)','cos(x)'),lty=c(1,2),col=c(1,2));
+![](ImagesOfPP1/CosSin0.png)
+> abline(h=0,v=0);
+![](ImagesOfPP1/CosSin0.png)
+> points(-1:1,c(0,1,0.5),pch=c(18,20,22), col=c(3,4,5));
+![](ImagesOfPP1/CosSin0.png)
+
+
 
 **Potser rellevant dividir la taula en taules més petites per temàtica.**
 ## Exemples
