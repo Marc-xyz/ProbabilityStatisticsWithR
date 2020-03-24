@@ -77,29 +77,40 @@
 
 
 #### `x=c(3,1,5,3); y=c(1,3,3,5); plot(x,y);`
-![ImagesOfPP1/PlotTypeDefault.png](ImagesOfPP1/PlotTypeDefault.png)
+![ImagesOfPP1/PlotTypeDefault_resized_60.png](ImagesOfPP1/PlotTypeDefault_resized_60.png)
+
 #### `x=c(3,1,5,3); y=c(1,3,3,5); plot(x,y, type="l");`
-![`plot(x,y, type="l")`](ImagesOfPP1/PlotTypeL.png)
+![`plot(x,y, type="l")`](ImagesOfPP1/PlotTypeL_resized_60.png)
+
 #### `curve(exp(-x^2),from=-3,to=3,col=2)`
-![`plot(x,y)`](ImagesOfPP1/CurveBellGauss.png)
+![`plot(x,y)`](ImagesOfPP1/CurveBellGauss_resized_60.png)
+
 #### `curve(exp(-x^2),from=-3,to=3,col=2);` `legend(’topright’,’exp(-x^2)’,lty=1,col=2);`
-![`plot(x,y)`](ImagesOfPP1/CurveLegendBellGauss.png)
+![`plot(x,y)`](ImagesOfPP1/CurveLegendBellGauss_resized_60.png)
+
 #### `curve(sin(x),-pi,pi, main="dibuix"); curve(cos(x),add=T,lty=2,col=2) ;legend('topright',c('sin(x)','cos(x)'),lty=c(1,2),col=c(1,2)); abline(h=0,v=0); points(-1:1,c(0,1,0.5),pch=c(18,20,22), col=c(3,4,5));`
+
 > **curve(sin(x),-pi,pi, main="dibuix");**
-![](ImagesOfPP1/CosSin01.png)
+![](ImagesOfPP1/CosSin01_resized_60.png)
+
 > **curve(cos(x),add=T,lty=2,col=2);**
-![](ImagesOfPP1/CosSin02.png)
+![](ImagesOfPP1/CosSin02_resized_60.png)
+
 > **legend('topright',c('sin(x)','cos(x)'),lty=c(1,2),col=c(1,2));**
-![](ImagesOfPP1/CosSin03.png)
+![](ImagesOfPP1/CosSin03_resized_60.png)
+
 > **abline(h=0,v=0);**
-![](ImagesOfPP1/CosSin04.png)
+![](ImagesOfPP1/CosSin04_resized_60.png)
+
 > **points(-1:1,c(0,1,0.5),pch=c(18,20,22), col=c(3,4,5));**
-![](ImagesOfPP1/CosSin05.png)
+![](ImagesOfPP1/CosSin05_resized_60.png)
+
 #### `par(mfrow=c(2,1);` `curve(sin(x),-pi,pi,lty=3,col=3);` `curve(cos(x),lty=2,col=2);`
-![](ImagesOfPP1/TwoPicturesInOne01.png)
-![](ImagesOfPP1/TwoPicturesInOne02.png)
+![](ImagesOfPP1/TwoPicturesInOne01_resized_60.png)
+![](ImagesOfPP1/TwoPicturesInOne02_resized_60.png)
+
 #### `x=seq(0,2*pi,by=0.1);` `plot(x,sin(x));` `plot(x,sin(x), type="l");`
-![](ImagesOfPP1/PlotWithSeq.png)
+![](ImagesOfPP1/PlotWithSeq_resized_60.png)
 
 
 
