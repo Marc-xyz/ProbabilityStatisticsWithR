@@ -133,6 +133,27 @@ IMC
 ``` Terminal
 [1] 19.59184 22.22222 20.93664 24.93075 31.37799 19.73630
 ```
+### Exemple _El problema del aniversari_
+
+La probabilitat que en un grup de $n$ persones (amb $n\leq365$), almenys dues celebrin l'aniversari el mateix dia és
+
+$$
+p_n=1-P(A^c)=1- \frac{Var(365,n)}{365^n}
+$$
+
+> L'objectiu és fer un gràfic d'aquestes probabilitats en funció de $n$. 
+
+```R
+Var=function(m,n){choose(m,n)*factorial(n)} #variacions(m,n).
+p=function(n){1-Var(365,n)/365^n} # Probabilitat del succés que volem observar.
+n=1:100 # 1 2 3 4 5 ... 100
+plot (n,p(n),type='l', col=5, add=T) # Gràfic com a "la corba que passa pels punts "
+n[p(n)>=0.9] # n tal que n<=0.9
+min(n[p(n)>=0.9]) # el més petit n tal que n<=0.9
+abline(v=min(n[p(n)>=0.9]), col=2) # En vermell a partir d'on ja tenim 90%
+```
+![](ImagesOfPP1/ProblemOfBirthday.png)
+![](ImagesOfPP1/ProblemOfBirthday02.png)
 
 ## Exercicis
 ### Exercici 1
@@ -153,10 +174,30 @@ $$
 ```
 **Solució:**
 Si fem servir directament l'expressió obtenim l'error `Warning message:
-In factorial(345) : value out of range in 'gammafn'`. Però també podem escriure `$Var(m,n)={m}\choose{n} \cdot n!$`.
+In factorial(345) : value out of range in 'gammafn'. Però també podem escriure `$Var(m,n)={m}\choose{n} \cdot n!$`.
 ```R
 > Var=function(m,n){choose(m,n)*factorial(n)}; Var(365,10);
 [1] 3.70608e+25
 ```
-```
 
+### Exercici 3
+Un llac té $N$ peixos, amb $N$ desconegut. Per tal d'estimar N fem el següent: pesquem $n_1$ peixos, els marquem i els tornem al llac. Esperem una estona i pesquem $n_2$ peixos, dels quals hi ha m de marcats. Suposem:
+    * La primera vegada es pesquen $n_1=50$ peixos, qu es marquen i es tornen al llac. 
+    * La segona vegada també es pesquen $n_2=50$, del quals n'hi ha $m=3$ marcats.
+Designem per $p_N$ la probabilitat que, si al llac hi ha $N$ peixos, en traiem exactament 3 de marcats d'entre els 50. Tenim:
+
+$$
+p_N=\frac{{50}\chosen{3}\cdot{N-50}\choose{47}}{{N}\choose{50}}, \quad N \leq 50 .
+$$
+Definiu una funció que calculi aquesta probabilitat. Feu un dibuix amb $N=50, \cdots , 2000.$. Calculeu la $N$ que maximitza aquesta funció. _Indicació_: primer trobeu el màxim de $p_N$ amb la funció `max(...)`.
+
+**Solució:**
+```R
+p=function(n){choose(50,3)*choose(n-50,47)*(1/choose(n,50))} # Funció probabilitat.
+N=50:2000 # valors d'interès
+M=c(max(N[p(N)==max(p(N))]),max(p(N))) # Punt on P_N assoleix màxim.
+plot(N,p(N),type="l",col=6,main="Llac amb N peixos"); points(M[1],M[2],col=2);
+abline(h=M[2],v=M[1]);
+legend('bottomright',c('p_N','(833,0.238)'),lty=c(1,2),col=c(6,2)); #Gràfic
+```
+![](ImagesOfPP1/LakeWithNFish.png)
