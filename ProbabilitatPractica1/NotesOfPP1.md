@@ -91,18 +91,23 @@
 #### `curve(sin(x),-pi,pi, main="dibuix"); curve(cos(x),add=T,lty=2,col=2) ;legend('topright',c('sin(x)','cos(x)'),lty=c(1,2),col=c(1,2)); abline(h=0,v=0); points(-1:1,c(0,1,0.5),pch=c(18,20,22), col=c(3,4,5));`
 
 > **curve(sin(x),-pi,pi, main="dibuix");**
+
 ![](ImagesOfPP1/CosSin01_resized_60.png)
 
 > **curve(cos(x),add=T,lty=2,col=2);**
+
 ![](ImagesOfPP1/CosSin02_resized_60.png)
 
 > **legend('topright',c('sin(x)','cos(x)'),lty=c(1,2),col=c(1,2));**
+
 ![](ImagesOfPP1/CosSin03_resized_60.png)
 
 > **abline(h=0,v=0);**
+
 ![](ImagesOfPP1/CosSin04_resized_60.png)
 
 > **points(-1:1,c(0,1,0.5),pch=c(18,20,22), col=c(3,4,5));**
+
 ![](ImagesOfPP1/CosSin05_resized_60.png)
 
 #### `par(mfrow=c(2,1);` `curve(sin(x),-pi,pi,lty=3,col=3);` `curve(cos(x),lty=2,col=2);`
