@@ -117,6 +117,7 @@
 #### `x=seq(0,2*pi,by=0.1);` `plot(x,sin(x));` `plot(x,sin(x), type="l");`
 ![](ImagesOfPP1/PlotWithSeq_resized_60.png)
 
+### Bucles i condicionals
 >  Una recomanació: Sempre que sigui possible, en R, usarem funcions amb vectors i evitarem l'ús de condicionals i bucles. Per qüestions d'eficiència en el temps de CPU.
 
 #### If
@@ -161,6 +162,29 @@ i = i+1
 [1] 4
 [1] 5
 ```
+
+### Matrius
+#### Omplir Matrius
+|Comanda com exemple| Comentari sobre la comanda|
+|-------------------|---------------------------|
+|`matrix(c(1,4,2,5,3,6),nrow=2)`|Omplir una matriu per columnes especificant el nombre de files com a segon argument|
+|`matrix(c(1,2,3,4,5,6),2,byrow=T)`|Omplir una matriu especificant el nombre de columnes com a segon argument i com a tercer el fet de voler-la omplir per files. On la `T` és una abreviatura per `True`.|
+|`matrix(c(1,4,2,5,3,6),ncol=3)`|Omplir una matriu per columnes especificant el nombre de columnes com a segon argument.|
+|`cbind(c(1,3,5),c(2,4,6))`| Ajuntar vectors com a columnes per formar una matriu.|
+|`rbind(c(1,2,3),c(4,5,6))`|Ajuntar vectors com a files per formar una matriu.|
+#### _Coses_ de Matrius
+Sigui `A` una matriu i `a` un vector `c(...)`.
+|Comanda com exemple| Comentari sobre la comanda|
+|-------------------|---------------------------|
+|`dim(A)`| Dóna les **dimensions** de la matriu `A`.|
+|`ncol(A)`|Dóna les **columnes** de la matriu `A`.|
+|`nrow(A)`|Dóna les **files** de la matriu `A`.|
+|`length(A)`| Ens dóna el nombre d'elements de la matriu `A`|
+|`dimnames(A)`|Si les files i columnes tenen _nom_, ens els dóna.|
+|`A[i,j]`| Element de fila `i` columna `j` de la matriu `A`.|
+|`A[i,]`|Dóna la fila _sencera_ `i` de la matriu `A`.|
+|`A[,j]`|Dóna la columna _sencera_ `j` de la matriu `A`.|
+|`as.matrix(a)`| El vector `a` _considerat_ com a matriu columna.|
 ## Exemples
 ### Exemple alçades
 Tenim dades de les alçades (en metres) i masses (en grams) de un grup de 6 persones. I en volem calcular L'**índex de massa corporal** o *IMC*, que recordem que es defineix com _el pes_ (no com a força, amb Kg) dividit entre l'alçada (en metres) al quadrat. _Picant codi_:
