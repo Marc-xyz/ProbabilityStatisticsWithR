@@ -117,27 +117,19 @@
 #### `x=seq(0,2*pi,by=0.1);` `plot(x,sin(x));` `plot(x,sin(x), type="l");`
 ![](ImagesOfPP1/PlotWithSeq_resized_60.png)
 
-### Condicionals i bucles
-
 >  Una recomanació: Sempre que sigui possible, en R, usarem funcions amb vectors i evitarem l'ús de condicionals i bucles. Per qüestions d'eficiència en el temps de CPU.
 
 #### If
-
->**Estructura:** `if (condicio) resultatSI else resultatNo`
-
->**Exemple:**
+> **Estructura:** `if (condicio) resultatSI else resultatNo`
+**Exemple:**
 ```R
 factorial2=function(){if(n<=170) factorial(n) else print("El nombre demanat es massa gran")}
+#print("Això no s imprimeix", quote=F)
 ```
-print("Això no s imprimeix", quote=F)
- 
-#### For
-> **Estructura:**
-`for (variable en el conjunt E)` resultat
- El resultat es pot posar entre claus, i si es vol en línies successives o separades amb punts i comes
-`{operacio1;operacio2;....}`
 
->**Exemple:**
+#### For
+ > **Estructura:**  `for (variable en el conjunt E)` resultat. El resultat es pot posar entre claus, i si es vol en línies successives o separades amb punts i comes`{operacio1;operacio2;....}`.
+**Exemple:**
 Taula amb el producte dels nombres $n(n+1)(n+2)$ per $n=1, \cdots ,10$.
 ```R
 h=rep(0,10) # vector on posarem els resultats
@@ -145,12 +137,12 @@ g=function(n){prod(n:(n+2))}
 for(i in 1:10){h[i]=g(i)}
 h
 ```
-```black
+```
  [1]    6   24   60  120  210  336  504  720  990 1320
 ```
 
 #### While
->**Exemple:**
+**Exemple:**
 Ves imprimint `i` i sumant una unitat mentre `i` sigui més petit que `6`.
 ```R
 
@@ -161,6 +153,7 @@ i = i+1
 }
 
 ```
+
 ```
 [1] 1
 [1] 2
@@ -168,9 +161,6 @@ i = i+1
 [1] 4
 [1] 5
 ```
-
-
-**Potser rellevant dividir la taula en taules més petites per temàtica.**
 ## Exemples
 ### Exemple alçades
 Tenim dades de les alçades (en metres) i masses (en grams) de un grup de 6 persones. I en volem calcular L'**índex de massa corporal** o *IMC*, que recordem que es defineix com _el pes_ (no com a força, amb Kg) dividit entre l'alçada (en metres) al quadrat. _Picant codi_:
