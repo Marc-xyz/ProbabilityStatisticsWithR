@@ -167,25 +167,33 @@ i = i+1
 #### Omplir Matrius
 |Comanda com exemple| Comentari sobre la comanda|
 |-------------------|---------------------------|
-|`matrix(c(1,4,2,5,3,6),nrow=2)`|Omplir una matriu per columnes especificant el nombre de files com a segon argument|
-|`matrix(c(1,2,3,4,5,6),2,byrow=T)`|Omplir una matriu especificant el nombre de columnes com a segon argument i com a tercer el fet de voler-la omplir per files. On la `T` és una abreviatura per `True`.|
-|`matrix(c(1,4,2,5,3,6),ncol=3)`|Omplir una matriu per columnes especificant el nombre de columnes com a segon argument.|
-|`cbind(c(1,3,5),c(2,4,6))`| Ajuntar vectors com a columnes per formar una matriu.|
-|`rbind(c(1,2,3),c(4,5,6))`|Ajuntar vectors com a files per formar una matriu.|
+|`matrix(c(1,4,2,5,3,6),nrow=2)`|**Omplir** una matriu **per columnes** especificant el nombre de files com a segon argument|
+|`matrix(c(1,2,3,4,5,6),2,byrow=T)`|Omplir una matriu especificant el nombre de columnes com a segon argument i com a tercer el fet de voler-la **omplir per files**. On la `T` és una abreviatura per `True`.|
+|`matrix(c(1,4,2,5,3,6),ncol=3)`|Omplir una matriu per columnes **especificant el nombre de columnes** com a segon argument.|
+|`cbind(c(1,3,5),c(2,4,6))`| **Ajuntar vectors com a columnes** per formar una matriu.|
+|`rbind(c(1,2,3),c(4,5,6))`|**Ajuntar vectors com a files** per formar una matriu.|
 #### _Coses_ de Matrius
-Sigui `A` una matriu i `a` un vector `c(...)`.
+Sigui `A` i `B` una matrius i `a` un vector `c(...)`.
+
 |Comanda com exemple| Comentari sobre la comanda|
 |-------------------|---------------------------|
 |`dim(A)`| Dóna les **dimensions** de la matriu `A`.|
 |`ncol(A)`|Dóna les **columnes** de la matriu `A`.|
 |`nrow(A)`|Dóna les **files** de la matriu `A`.|
-|`length(A)`| Ens dóna el nombre d'elements de la matriu `A`|
+|`length(A)`| Ens dóna el **nombre d'elements** de la matriu `A`|
 |`dimnames(A)`|Si les files i columnes tenen _nom_, ens els dóna.|
-|`A[i,j]`| Element de fila `i` columna `j` de la matriu `A`.|
-|`A[i,]`|Dóna la fila _sencera_ `i` de la matriu `A`.|
-|`A[,j]`|Dóna la columna _sencera_ `j` de la matriu `A`.|
-|`as.matrix(a)`| El vector `a` _considerat_ com a matriu columna.|
-## Exemples
+|`A[i,j]`| **Element** de fila `i` columna `j` de la matriu `A`.|
+|`A[i,]`|Dóna la **fila** _sencera_ `i` de la matriu `A`.|
+|`A[,j]`|Dóna la **columna** _sencera_ `j` de la matriu `A`.|
+|`as.matrix(a)`| El vector `a` _considerat_ **com a matriu columna**.|
+|`t(A)`| Dóna la matriu traspostada de `A`.|
+|`A*B` i `A/B`| Fa referencia al producte (o divisió) **element per element**. NO és el producte habitual|
+|`A%*%B`| **Producte de matrius** en R. |
+|`solve(A)`|Per calcular la matriu inversa podem fer servir la funció `solve` |
+
+> En general farem servir la funció `solve(a,b)`  per resoldre sistemes lineals on `a` es la _matriu del sistema_ i b el _vector de terme independents_ $AX=B$.
+> **Convenció en R:** posar noms separats per punts.
+
 ### Exemple alçades
 Tenim dades de les alçades (en metres) i masses (en grams) de un grup de 6 persones. I en volem calcular L'**índex de massa corporal** o *IMC*, que recordem que es defineix com _el pes_ (no com a força, amb Kg) dividit entre l'alçada (en metres) al quadrat. _Picant codi_:
 ```R
@@ -266,3 +274,71 @@ abline(h=M[2],v=M[1]);
 legend('bottomright',c('p_N','(833,0.238)'),lty=c(1,2),col=c(6,2)); #Gràfic
 ```
 ![](ImagesOfPP1/LakeWithNFish.png)
+
+### Exercici 4
+* Entreu les matrius
+$$
+A=\left(\begin{matrix}
+2&3&4\\
+4&0&-1\\
+\end{matrix}\right)
+\text{ i }
+A=\left(\begin{matrix}
+0&1&2\\
+-3&2&1\\
+\end{matrix}\right)
+$$
+Calculeu $C=A+B$, $D=2A$, $E=AB^t$, on aquesta útilma vol dir el producte ordinal de matrius.
+
+* Suigui $$\left( \begin{matrix} 2&3\\4&-1\end{matrix} \right)$$ Calculeu $G=F^{-1}$
+* Amb les anotacions de l'**Exercici 1** , calculeu el producte escalar dels vectors _a_ i _b_.
+
+**Solució:**
+``` R
+#SolucioPrimerPunt
+A=matrix(c(2,4,3,0,4,-1),3); #PitjorManeraEntrarDadees
+B<-matrix(c(0,-3,1,2,2,1),ncol=3); #ElMateixQueUnIgual
+C=A+B;D<-2*A;E<-A%*%t(B) 
+A;B;C;D;E #Resultats
+```
+```
+   [,1] [,2] [,3]
+[1,]    2    3    4
+[2,]    4    0   -1
+     [,1] [,2] [,3]
+[1,]    0    1    2
+[2,]   -3    2    1
+     [,1] [,2] [,3]
+[1,]    2    4    6
+[2,]    1    2    0
+     [,1] [,2] [,3]
+[1,]    4    6    8
+[2,]    8    0   -2
+     [,1] [,2]
+[1,]   11    4
+[2,]   -2  -13
+```
+```R
+F<-matrix(c(2,3,4,-1),nrow=2) #MillorMoltMillor
+G=solve(F) #TalQual
+G;
+```
+```
+          [,1]       [,2]
+[1,] 0.07142857  0.2857143
+[2,] 0.21428571 -0.1428571
+```
+``` R
+a=matrix(c(2,1,4,7),nrow=1); b=matrix(c(4,0,-1,7),ncol=1);
+a%*%b;
+```
+```
+     [,1]
+[1,]   53
+
+```
+
+
+
+
+
