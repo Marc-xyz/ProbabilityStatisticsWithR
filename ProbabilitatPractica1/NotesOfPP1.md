@@ -192,6 +192,7 @@ Sigui `A` i `B` una matrius i `a` un vector `c(...)`.
 |`solve(A)`|Per calcular la matriu inversa podem fer servir la funció `solve` |
 
 > En general farem servir la funció `solve(a,b)`  per resoldre sistemes lineals on `a` es la _matriu del sistema_ i b el _vector de terme independents_ $AX=B$.
+
 > **Convenció en R:** posar noms separats per punts.
 
 ### Exemple alçades
@@ -330,6 +331,7 @@ G;
 [2,] 0.21428571 -0.1428571
 ```
 ``` R
+#SolucioTercerPunt
 a=matrix(c(2,1,4,7),nrow=1); b=matrix(c(4,0,-1,7),ncol=1);
 a%*%b;
 ```
