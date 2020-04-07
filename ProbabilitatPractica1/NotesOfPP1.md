@@ -319,6 +319,7 @@ A;B;C;D;E #Resultats
 [2,]   -2  -13
 ```
 ```R
+#SoluciosegonPunt
 F<-matrix(c(2,3,4,-1),nrow=2) #MillorMoltMillor
 G=solve(F) #TalQual
 G;
