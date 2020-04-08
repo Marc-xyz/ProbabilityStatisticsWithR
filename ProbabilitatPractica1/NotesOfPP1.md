@@ -340,6 +340,61 @@ a%*%b;
 [1,]   53
 
 ```
+### Exercici 5
+Tenim una capsa amb 8 boles. Cinc boles tenen nombres positius $1,2,3,4,5$ i les altres boles nombres negatius $-1,-2$ i $-3$. Traiem dues boles (sense reposició). Volem calcular la probabilitat que el produce dels nombres.
+
+**Solució habitual:**
+**Solució amb R:**
+```R
+install.packages('combinat')
+library(combinat)
+```
+```
+Attaching package: ‘combinat’
+
+The following object is masked from ‘package:utils’:
+
+    combn
+```
+```R
+urna=c(1,2,3,4,5,-1,-2,-3)
+> CP=combn(urna,2)
+> CP
+```
+```
+     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
+[1,]    1    1    1    1    1    1    1    2    2     2     2     2     2     3
+[2,]    2    3    4    5   -1   -2   -3    3    4     5    -1    -2    -3     4
+     [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24] [,25] [,26]
+[1,]     3     3     3     3     4     4     4     4     5     5     5    -1
+[2,]     5    -1    -2    -3     5    -1    -2    -3    -1    -2    -3    -2
+     [,27] [,28]
+[1,]    -1    -2
+[2,]    -3    -3
+
+```
+```R
+CPDOS=abs(CP)+CP; #MatriuAmbZerosUtils
+result=CPDOS[1,]*CPDOS[2,]; #ProductesRellevantsValenZero
+length(result[result==0])/dim(CP)[2]; #ComptemZeosIDividim
+```
+```
+> CPDOS; result; 
+     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
+[1,]    2    2    2    2    2    2    2    4    4     4     4     4     4     6
+[2,]    4    6    8   10    0    0    0    6    8    10     0     0     0     8
+     [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24] [,25] [,26]
+[1,]     6     6     6     6     8     8     8     8    10    10    10     0
+[2,]    10     0     0     0    10     0     0     0     0     0     0     0
+     [,27] [,28]
+[1,]     0     0
+[2,]     0     0
+ [1]  8 12 16 20  0  0  0 24 32 40  0  0  0 48 60  0  0  0 80  0  0  0  0  0  0
+[26]  0  0  0
+```
+> length(result[result==0])/dim(CP)[2];
+[1] 0.6428571
+
 
 
 
