@@ -14,6 +14,7 @@
 |`T`| Variable Booleana. Veritat. |`T #TRUE`|`[1] TRUE`|
 |`F`|Variable Booleana. Fals.|`F #FALSE`|`[1] FALSE`|
 |`NA`|Not available, hi ha alguna dada que falta o que no té sentit, en algun lloc.|`NA #NADENA`|`[1] NA`|
+|`print()`| Si afegim l'argument `quote=FALSE`, aleshores imprimeix els _Strings_ sense `'`'s o `"`'s. |`print('"', quote=FALSE)`|`[1] "`|
 |`+`,`-`,`*`,`/`,`^`|Operadors bàsics, en igual odre; suma, resta, producte, quocient, potència. (**Nota:** El vectors o llistes és sumen component a component).|`(1+2-3*4/5^6)`|`[1] 2.999232`|
 ### Successions
 |Comanda|Comentari sobre la comanda|Exemple(_Input_)|(_ouput_)|
@@ -114,7 +115,7 @@
 ![](ImagesOfPP1/TwoPicturesInOne01_resized_60.png)
 ![](ImagesOfPP1/TwoPicturesInOne02_resized_60.png)
 
-#### `x=seq(0,2*pi,by=0.1);` `plot(x,sin(x));` `plot(x,sin(x), type="l");`
+#### `par(mfrow=c(2,1);` `x=seq(0,2*pi,by=0.1);` `plot(x,sin(x));` `plot(x,sin(x), type="l");`
 ![](ImagesOfPP1/PlotWithSeq_resized_60.png)
 
 ### Bucles i condicionals
@@ -122,14 +123,18 @@
 
 #### If
 > **Estructura:** `if (condicio) resultatSI else resultatNo`
+
 **Exemple:**
 ```R
 factorial2=function(){if(n<=170) factorial(n) else print("El nombre demanat es massa gran")}
-#print("Això no s imprimeix", quote=F)
 ```
-
+>De fet podem fer servir la **mateixa sintaxis**  per el condicional que a C:
+```R
+factorial2=function(n){if(n<=170){factorial(n);} else{print("Nombre massa gran");}}
+```
 #### For
- > **Estructura:**  `for (variable en el conjunt E)` resultat. El resultat es pot posar entre claus, i si es vol en línies successives o separades amb punts i comes`{operacio1;operacio2;....}`.
+ > **Estructura:**  `for (variable en el conjunt E)` resultat. El resultat es pot posar entre claus, i si es vol en línies successives, o separades amb punts i comes a la mateixa línia;`{operacio1;operacio2;....}`.
+ 
 **Exemple:**
 Taula amb el producte dels nombres $n(n+1)(n+2)$ per $n=1, \cdots ,10$.
 ```R
@@ -146,13 +151,11 @@ h
 **Exemple:**
 Ves imprimint `i` i sumant una unitat mentre `i` sigui més petit que `6`.
 ```R
-
-i <- 1
-while (i < 6) {
+i <- 1 #~i=1
+while (i < 6){
 print(i)
 i = i+1
 }
-
 ```
 
 ```
