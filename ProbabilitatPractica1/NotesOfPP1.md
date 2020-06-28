@@ -170,8 +170,8 @@ i = i+1
 #### Omplir Matrius
 |Comanda com exemple| Comentari sobre la comanda|
 |-------------------|---------------------------|
-|`matrix(c(1,4,2,5,3,6),nrow=2)`|**Omplir** una matriu **per columnes** especificant el nombre de files com a segon argument|
-|`matrix(c(1,2,3,4,5,6),2,byrow=T)`|Omplir una matriu especificant el nombre de columnes com a segon argument i com a tercer el fet de voler-la **omplir per files**. On la `T` és una abreviatura per `True`.|
+|`matrix(c(1,4,2,5,3,6),nrow=2)`|**Omplir** una matriu **per columnes** especificant el nombre de files com al segon argument.|
+|`matrix(c(1,2,3,4,5,6),2,byrow=T)`|Omplir una matriu especificant el nombre de columnes com a segon argument ,i com a tercer: el fet de voler-la **omplir per files**. On la `T` és una abreviatura per `True`.|
 |`matrix(c(1,4,2,5,3,6),ncol=3)`|Omplir una matriu per columnes **especificant el nombre de columnes** com a segon argument.|
 |`cbind(c(1,3,5),c(2,4,6))`| **Ajuntar vectors com a columnes** per formar una matriu.|
 |`rbind(c(1,2,3),c(4,5,6))`|**Ajuntar vectors com a files** per formar una matriu.|
@@ -185,15 +185,15 @@ Sigui `A` i `B`  matrius,  `a` un vector `c(...)`, aleshores;
 |`ncol(A)`|Dóna les **columnes** de la matriu `A`.|
 |`nrow(A)`|Dóna les **files** de la matriu `A`.|
 |`length(A)`| Ens dóna el **nombre d'elements** de la matriu `A`|
-|`dimnames(A)`|Si les files i columnes tenen _nom_, ens els dóna. Veure: **Annex matrius I**.|
+|`dimnames(A)`|Si les files i columnes tenen _nom_, ens els dóna. (Veure: **Annex matrius I**).|
 |`A[i,j]`| **Element** de fila `i` columna `j` de la matriu `A`.|
 |`A[i,]`|Dóna la **fila** _sencera_ `i` de la matriu `A`.|
 |`A[,j]`|Dóna la **columna** _sencera_ `j` de la matriu `A`.|
 |`as.matrix(a)`| El vector `a` _considerat_ **com a matriu columna**.|
 |`t(A)`| Dóna la matriu traspostada de `A`.|
-|`A*B` i `A/B`| Fa referencia al producte (o divisió) **element per element**. NO és el producte habitual|
-|`A%*%B`| **Producte de matrius** en R. |
-|`solve(A)`|Per calcular la matriu inversa podem fer servir la funció `solve` |
+|`A*B` i `A/B`| Fa referència al producte (o divisió) **element per element**. NO és el producte habitual.|
+|`A%*%B`| **Producte de matrius** en **R**. |
+|`solve(A)`|Per calcular la matriu inversa podem fer servir la funció `solve`. |
 
 > En general farem servir la funció `solve(a,b)`  per resoldre sistemes lineals on `a` es la _matriu del sistema_ i b el _vector de terme independents_ $AX=B$.
 
