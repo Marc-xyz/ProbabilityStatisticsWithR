@@ -1,6 +1,8 @@
 # Referències ràpides per a l'R
 ## Taules de sintaxis del llenguatge R 
 ### Elementals
+
+
 |Comanda|Comentari sobre la comanda|Exemple(_Input_)|(_ouput_)|
 |-------|--------------------------|--------------------------|-----------------|
 |   `#`   | Serveix per ficar comentaris. | `#This is a code comment` ||
@@ -236,7 +238,7 @@ In matrix(c(5, 3, -1, 3, 1), nrow = 2) :
 
 ## Exemples
 ### Exemple alçades
-Tenim dades de les alçades (en metres) i masses (en grams) de un grup de 6 persones. I en volem calcular L'**índex de massa corporal** o *IMC*, que recordem que es defineix com _el pes_ (no com a força, amb Kg) dividit entre l'alçada (en metres) al quadrat. _Picant codi_:
+Tenim dades de les alçades (en metres) i masses (en grams) de un grup de 6 persones. I en volem calcular L'**índex de massa corporal** o *IMC*, que recordem que es defineix com _el pes_ (no com a força, amb Kg) dividit entre l'alçada (en metres) al quadrat. <!--_Picant codi_:-->
 ```R
 # Obvservem que les operacions amb vectors es fan component a component
 pes=c(60,72,57,90,95,72)
@@ -274,6 +276,7 @@ abline(v=min(n[p(n)>=0.9]), col=2) # En vermell a partir d'on ja tenim 90%
 Amb els vectors `a=c(2,1,4,7)` i `b=c(4,0,-1,7)`, calculeu `c=2*a+5*b` i `d=a*b`,on aquesta darrera expressió vol dir el _producte component a component_ (producte escalar de vectors).
 
 **Solució:**
+
 ```R
 > a=c(2,1,4,7); b=c(4,0,-1,7); c=2*a+5*b; d=a*b; c; d;
 [1] 24  2  3 49
@@ -281,28 +284,33 @@ Amb els vectors `a=c(2,1,4,7)` i `b=c(4,0,-1,7)`, calculeu `c=2*a+5*b` i `d=a*b`
 ```
 ### Exercici 2
 Escriviu una funció de `m` i `n` que calculi les variacions `Var(m, n)`. Calculeu `Var(365, 10)`. Recordem que:
-```TEX
+
 $$
 Var(m,n)=frac{m!}{(m-n)!}
 $$
-```
+
 **Solució:**
+
 Si fem servir directament l'expressió obtenim l'error `Warning message:
-In factorial(345) : value out of range in 'gammafn'. Però també podem escriure `$Var(m,n)={m}\choose{n} \cdot n!$`.
+In factorial(345) : value out of range in 'gammafn'.` Però també podem escriure $Var(m,n)={m}\choose{n} \cdot n!$.
 ```R
 > Var=function(m,n){choose(m,n)*factorial(n)}; Var(365,10);
 [1] 3.70608e+25
 ```
 
 ### Exercici 3
-Un llac té $N$ peixos, amb $N$ desconegut. Per tal d'estimar N fem el següent: pesquem $n_1$ peixos, els marquem i els tornem al llac. Esperem una estona i pesquem $n_2$ peixos, dels quals hi ha m de marcats. Suposem:
-    * La primera vegada es pesquen $n_1=50$ peixos, qu es marquen i es tornen al llac. 
-    * La segona vegada també es pesquen $n_2=50$, del quals n'hi ha $m=3$ marcats.
-Designem per $p_N$ la probabilitat que, si al llac hi ha $N$ peixos, en traiem exactament 3 de marcats d'entre els 50. Tenim:
+Un llac té $N$ peixos, amb $N$ desconegut. Per tal d'estimar $N$ fem el següent: pesquem $n_1$ peixos, els marquem i els tornem al llac. Esperem una estona i pesquem $n_2$ peixos, dels quals hi ha $m$ de marcats. 
+Suposem:
+    *  La primera vegada es pesquen $n_1=50$ peixos, que es marquen i es tornen al llac. 
+    *  La segona vegada també es pesquen $n_2=50$, del quals n'hi ha $m=3$ marcats.
+
+Designem per $p_N$ la probabilitat que, si al llac hi ha $N$ peixos, en traiem exactament 3 de marcats d'entre els 50. 
+Tenim:
 
 $$
 p_N=\frac{{50}\chosen{3}\cdot{N-50}\choose{47}}{{N}\choose{50}}, \quad N \leq 50 .
 $$
+
 Definiu una funció que calculi aquesta probabilitat. Feu un dibuix amb $N=50, \cdots , 2000.$. Calculeu la $N$ que maximitza aquesta funció. _Indicació_: primer trobeu el màxim de $p_N$ amb la funció `max(...)`.
 
 **Solució:**
@@ -318,6 +326,7 @@ legend('bottomright',c('p_N','(833,0.238)'),lty=c(1,2),col=c(6,2)); #Gràfic
 
 ### Exercici 4
 * Entreu les matrius
+
 $$
 A=\left(\begin{matrix}
 2&3&4\\
@@ -329,6 +338,7 @@ A=\left(\begin{matrix}
 -3&2&1\\
 \end{matrix}\right)
 $$
+
 Calculeu $C=A+B$, $D=2A$, $E=AB^t$, on aquesta útilma vol dir el producte ordinal de matrius.
 
 * Suigui $$\left( \begin{matrix} 2&3\\4&-1\end{matrix} \right)$$ Calculeu $G=F^{-1}$
@@ -381,9 +391,35 @@ a%*%b;
 
 ```
 ### Exercici 5
-Tenim una capsa amb 8 boles. Cinc boles tenen nombres positius $1,2,3,4,5$ i les altres boles nombres negatius $-1,-2$ i $-3$. Traiem dues boles (sense reposició). Volem calcular la probabilitat que el produce dels nombres.
+Tenim una capsa amb 8 boles. Cinc boles tenen nombres positius $1,2,3,4,5$ i les altres boles nombres negatius $-1,-2$ i $-3$. Traiem dues boles (sense reposició). Volem calcular la probabilitat que el produce dels nombres corresponents sigui positiu.
 
 **Solució habitual:**
+Si el producte es positiu només hi ha dos escenaris possibles: o bé els dos nombres són positius (cas **A **); o bé els dos són negatius (cas **B**). Aleshores:
+```
+Cas B:       Cas A:
+[-1,-2];     [1,2]; [2,3]; [3,4]; [4,5];     
+[-1,-3];     [1,3]; [2,4]; [3,5];
+[-2,-3];  ;  [1,4]; [2,5];
+             [1,5];
+``` 
+,és a dir, (3)+(4+3+2+1)=3+7+3=13, combinacions favorables.
+
+Ara veiem que tots els casos possibles (no favorables i favorables) són les combinacions totes les possibles de vuit elements agafats de dos en dos, això és:
+
+```
+  / 8 \         8!          1·2·3·4·5·6·7·8     7·8
+ |     | = ------------ = ------------------ = ----- = 7·4 = 28
+  \ 2 /      2!·(8-2)!     1·2·(1·2·3·4·5·6)     2
+```
+Per tant si considerem la probabilitat d'un succés equiprobable com el quocient entre casos favorables entre casos possibles obtenim que:
+
+```
+                                            casos favorables     13         ------
+P{"Produce dels nombres dos nombres > 0"}= ----------------- = ------ = 0'46428571.
+                                            casos possibles      28
+```
+On `------` denota el 6-període del nombre racional decimal.
+
 **Solució amb R:**
 ```R
 install.packages('combinat')
@@ -398,8 +434,8 @@ The following object is masked from ‘package:utils’:
 ```
 ```R
 urna=c(1,2,3,4,5,-1,-2,-3)
-> CP=combn(urna,2)
-> CP
+CP=combn(urna,2)
+CP
 ```
 ```
      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
@@ -414,26 +450,18 @@ urna=c(1,2,3,4,5,-1,-2,-3)
 
 ```
 ```R
-CPDOS=abs(CP)+CP; #MatriuAmbZerosUtils
-result=CPDOS[1,]*CPDOS[2,]; #ProductesRellevantsValenZero
-length(result[result==0])/dim(CP)[2]; #ComptemZeosIDividim
+result=CP[1,]*CP[2,]; #Productes
+result;
+c("P=",length(result[result>0])/dim(CP)[2]); #ComptemPositius
+c("P=",length(result[result>0]),"/", dim(CP)[2]) # FracciExacte
 ```
 ```
-> CPDOS; result; 
-     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
-[1,]    2    2    2    2    2    2    2    4    4     4     4     4     4     6
-[2,]    4    6    8   10    0    0    0    6    8    10     0     0     0     8
-     [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24] [,25] [,26]
-[1,]     6     6     6     6     8     8     8     8    10    10    10     0
-[2,]    10     0     0     0    10     0     0     0     0     0     0     0
-     [,27] [,28]
-[1,]     0     0
-[2,]     0     0
- [1]  8 12 16 20  0  0  0 24 32 40  0  0  0 48 60  0  0  0 80  0  0  0  0  0  0
-[26]  0  0  0
+[1]   2   3   4   5  -1  -2  -3   6   8  10  -2  -4  -6  12  15  -3  -6  -9  20
+[20]  -4  -8 -12  -5 -10 -15   2   3   6
+[1] "P=" "0.464285714285714"
+[1] "P=" "13" "/"  "28"
 ```
-> length(result[result==0])/dim(CP)[2];
-[1] 0.6428571
+
 
 
 
