@@ -175,8 +175,9 @@ i = i+1
 |`matrix(c(1,4,2,5,3,6),ncol=3)`|Omplir una matriu per columnes **especificant el nombre de columnes** com a segon argument.|
 |`cbind(c(1,3,5),c(2,4,6))`| **Ajuntar vectors com a columnes** per formar una matriu.|
 |`rbind(c(1,2,3),c(4,5,6))`|**Ajuntar vectors com a files** per formar una matriu.|
+
 #### _Coses_ de Matrius
-Sigui `A` i `B` una matrius i `a` un vector `c(...)`.
+Sigui `A` i `B`  matrius,  `a` un vector `c(...)`, aleshores;
 
 |Comanda com exemple| Comentari sobre la comanda|
 |-------------------|---------------------------|
@@ -184,7 +185,7 @@ Sigui `A` i `B` una matrius i `a` un vector `c(...)`.
 |`ncol(A)`|Dóna les **columnes** de la matriu `A`.|
 |`nrow(A)`|Dóna les **files** de la matriu `A`.|
 |`length(A)`| Ens dóna el **nombre d'elements** de la matriu `A`|
-|`dimnames(A)`|Si les files i columnes tenen _nom_, ens els dóna.|
+|`dimnames(A)`|Si les files i columnes tenen _nom_, ens els dóna. Veure: **Annex matrius I**.|
 |`A[i,j]`| **Element** de fila `i` columna `j` de la matriu `A`.|
 |`A[i,]`|Dóna la **fila** _sencera_ `i` de la matriu `A`.|
 |`A[,j]`|Dóna la **columna** _sencera_ `j` de la matriu `A`.|
@@ -198,6 +199,42 @@ Sigui `A` i `B` una matrius i `a` un vector `c(...)`.
 
 > **Convenció en R:** posar noms separats per punts.
 
+#### Annex matrius I (Noms de matrius)
+##### Exemple (*Noms columnes i files*)
+Podem ficar noms a les columnes i files d'una matriu amb l'argument `dimnames=list(NomsFiles,NomColumnes)`. Donem un primer exemple:
+```R
+> rnames=c("row1","row2")
+> cnames=c("col1","col2","col3")
+> matrix(c(1,4,2,5,3,6),nrow=2,dimnames=list(rnames,cnames)
++ )
+```
+```
+     col1 col2 col3
+row1    1    2    3
+row2    4    5    6
+```
+##### Exemple (*Inversos dels nombres de Bernoulli*)
+Donem-ne un exemple més (amb l'invers dels 8 primers nombres de _Bernoulli_ ):
+```R
+> A=matrix(c(1,-2,6,0,-30,0,42,0),nrow=1, dimnames=list("$B_n^{-1}$",c("n=0","n=1","n=2","n=3","n=4","n=5","n=6","n=7")))
+> A
+```
+```
+           n=0 n=1 n=2 n=3 n=4 n=5 n=6 n=7
+$B_n^{-1}$   1  -2   6   0 -30   0  42   0
+```
+#### Annex matrius II (Un error)
+Malgrat el concepte de **Regla de reutilització**, vist amb les operacions aritmètiques elementals amb _arrays_ per defecte, els elements donats per a construir una matriu, han de ser un múltiple de les columnes especificades; o en cas contrari, del nombre de files especificat. Veiem que això es cert, provant de fer el contrari, amb el següent exemple.  
+
+```
+> b=matrix(c(5,3,-1,3,1,4),nrow=2)
+> b=matrix(c(5,3,-1,3,1),nrow=2)  
+Warning message:
+In matrix(c(5, 3, -1, 3, 1), nrow = 2) :
+  data length [5] is not a sub-multiple or multiple of the number of rows [2]
+```
+
+## Exemples
 ### Exemple alçades
 Tenim dades de les alçades (en metres) i masses (en grams) de un grup de 6 persones. I en volem calcular L'**índex de massa corporal** o *IMC*, que recordem que es defineix com _el pes_ (no com a força, amb Kg) dividit entre l'alçada (en metres) al quadrat. _Picant codi_:
 ```R
