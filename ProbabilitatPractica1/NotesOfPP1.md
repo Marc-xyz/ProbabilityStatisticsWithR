@@ -7,19 +7,19 @@
 | `*` | Operador producte.| `3*2` |`[1] 6`|
 |`sqrt()`|Funció arrel quadrada.| `sqrt(196)`|`[1] 14`|
 |`pi`|Quocient de la longitud d'una circumferència entre el doble del seu radi.|`-pi`|`[1] -3.141593`|
-|`e`|Com prefixe potencia de deu| `3e2 #Thermopylae number` |`[1] 300`|
+|`e`|Com prefixe potència de deu| `3e2 #Thermopylae number` |`[1] 300`|
 |`as.complex()`|a+bi amb a i b reals|`as.complex(-4) #-4 vist com a nombre complex` |`[1] -4+0i`|
 |`i`|Unitat Complexa|`3i`|`[1] 0+3i`|
 |`""`|Per donar una cadena.|`"En el Nom de Edmon"`|`[1] "En el Nom de Edmon"`|
 |`T`| Variable Booleana. Veritat. |`T #TRUE`|`[1] TRUE`|
 |`F`|Variable Booleana. Fals.|`F #FALSE`|`[1] FALSE`|
-|`NA`|Not available, hi ha alguna dada que falta o que no té sentit en algun lloc.|`NA #NADENA`|`[1] NA`|
-|`+`,`-`,`*`,`/`,`^`|Operadors bàsics, en igual odre, suma, resta, producte, quocient, potència. (**Nota:** El vectors o llistes és sumen component a component).|`(1+2-3*4/5^6)`|`[1] 2.999232`|
+|`NA`|Not available, hi ha alguna dada que falta o que no té sentit, en algun lloc.|`NA #NADENA`|`[1] NA`|
+|`+`,`-`,`*`,`/`,`^`|Operadors bàsics, en igual odre; suma, resta, producte, quocient, potència. (**Nota:** El vectors o llistes és sumen component a component).|`(1+2-3*4/5^6)`|`[1] 2.999232`|
 ### Successions
 |Comanda|Comentari sobre la comanda|Exemple(_Input_)|(_ouput_)|
 |-------|--------------------------|--------------------------|-----------------|
-|`rep()` |_Repeat_, serveix per repetir el primer argument _n_ vegades el segon argument |`rep(":)",2) #El doble de content`|`[1] ":)" ":)"`|
-|`1:10`|Successions (llista) d'enters|`1:10 #Comptar nombre de suspesos`|` [1]  1  2  3  4  5  6  7  8  9 10`|
+|`rep()` |_Repeat_, serveix per repetir el primer argument _n_ vegades el segon argument. |`rep(":)",2) #El doble de content`|`[1] ":)" ":)"`|
+|`1:10`|Successions (llista) d'enters.|`1:10 #Comptar nombre de suspesos`|` [1]  1  2  3  4  5  6  7  8  9 10`|
 |`5:1`|Dóna els valors dels enters de gran a petit.|`5:1`|`[1] 5 4 3 2 1`|
 |`seq(,,by=)`|Serveix per fer llistes de nombres més elaborades. Podem pensar que ens dóna fins l'enèsim nombre d'una successió. De `-pi` fins a `pi` de `0.5` en `0.5`.|`seq(-pi,pi,by=.5)`| `[1] -3.1415927 -2.6415927 -2.1415927 -1.6415927 -1.1415927 -0.6415927 [7] -0.1415927  0.3584073  0.8584073  1.3584073  1.8584073  2.3584073 [13]  2.8584073`|
 |`seq(,,lenght=)`|També podem ficar  l' _especificador_ `lenght=` per demanar 10 valors equiespaiats entre dos nombres de la recta real.|`seq(-pi,pi,length=10),`|`seq(-pi,pi,length=10)`| `[1] -3.1415927 -2.4434610 -1.7453293 -1.0471976 -0.3490659  0.3490659 [7]  1.0471976  1.7453293  2.4434610  3.1415927`|
@@ -27,7 +27,7 @@
 |`espera=c("H","O","P","E")`|També podem definir un _array_/llista/vector de _Strings_.|` c("N",espera[2])`|`[1] "N" "O"`|
 ### _Arrays_
 
-> Recordem la **Regla de reutilització**: si tenim dos vector de diferents mides `a` i `b`. Suposem que el vector més curt és `b`. Aleshores en fer l'operació `a*b`,`a+b`,`a-b`, etc, tenim que les operacions és fan _component a component_ i quan s'acaben les _components_ de `b` aleshores és reciclen en el mateix ordre fins acabar amb totes les components de `a`.
+> Recordem la **Regla de reutilització**: si tenim dos vector de diferents mides `a` i `b`. Suposem que el vector més curt és `b`. Aleshores en fer l'operació `a*b`,`a+b`,`a-b`, etc; tenim que les operacions és fan _component a component_ i quan s'acaben les _components_ de `b`, aleshores és reciclen, en el mateix ordre, fins acabar amb totes les components de `a`.
 
 > Exemple:
 ```R
@@ -38,7 +38,7 @@
 
 |Comanda|Comentari sobre la comanda|Exemple(_Input_)|(_ouput_)|
 |-------|--------------------------|--------------------------|-----------------|
-|`a <- c(1,0,-1,1)`|Assignar valor vectorial `c(1,0,-1,1)` a la variable `a`. La `c` ve de concatenar. |`a<- c(1,0,-1,1) #Forma de fer ho vella (previus versions R)`||
+|`a <- c(1,0,-1,1)`|Assignar valor vectorial `c(1,0,-1,1)` a la variable `a`. La `c` ve de _concatenar_. |`a<- c(1,0,-1,1) #Forma de fer ho vella (previus versions R)`||
 |`a=c(1,0,-1,1)`|Assignar valor vectorial `c(1,0,-1,1)` a la variable `a`. Sintaxis més nova. Pot no funcionar en _obsolets_. |`a=c(1,0,-1,1)`||
 |`c(a,b)`|També serveix per concatenar vectors. Siguin `a=c(1,2)` i `b=c(3,4)`, llavors `c(a,b)` retornara el vector `c(1,2,3,4)`.|`c(c(1,2),c(3,4))`|`[1] 1 2 3 4`|
 |`a[2]`|Retorna la segona component del vector `a`. El vector no està indexat per `0`.|`c(1,2)[1] #Suposem c(1,2)=a definit prèviament`|`[1] 1`|
